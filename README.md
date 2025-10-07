@@ -7,12 +7,12 @@
 Предварительно создать компонент для галереи, например, такой:
  
 _Префикс списка объектов:_
-<?= $f_AdminCommon; ?>
+<?php echo $f_AdminCommon; ?>
 <div class="article-carousel">
   
 _Объект в списке:_
-<?= $f_AdminButtons; ?>
-<?=$f_album_img?>
+<?php echo $f_AdminButtons; ?>
+<?php echo $f_album_img?>
 
 _Суффикс списка объектов:_
 <button class="carousel-prev" aria-label="Предыдущее изображение">❮</button>
