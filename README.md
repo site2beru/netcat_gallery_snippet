@@ -7,12 +7,12 @@
 Предварительно создать компонент для галереи, например, такой:
  
 **Префикс списка объектов:**
-<?php echo $f_AdminCommon; ?>
+<?//php echo $f_AdminCommon; ?>
 <div class="article-carousel">
   
 **Объект в списке:
-**<?php echo $f_AdminButtons; ?>
-<?php echo $f_album_img?>
+**<?//php echo $f_AdminButtons; ?>
+<?//php echo $f_album_img?>
 
 **Суффикс списка объектов:
 **<button class="carousel-prev" aria-label="Предыдущее изображение">❮</button>
@@ -24,7 +24,7 @@
 
 В **системных настройках** компонента прописать вывод поля «Множественная загрузка файлов»:
 
-<?php
+<?//php
 $f_album_img_tpl = array(
     'prefix' => "<div class='carousel-container'>",
     'record' => "<div class='carousel-slide active'><img src='%Path%' /><div class='carousel-caption'><?=$f_album_title?></div></div>",
