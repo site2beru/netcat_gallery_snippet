@@ -2,8 +2,8 @@
 
 class GalleryProcessor {
     
-    protected static $gallery_component_id = 1; // ID компонента "Галереи"
-    protected static $image_field_id = 1; // ID поля с изображениями в галерее
+    protected static $gallery_component_id = 205; // ID компонента "Галереи" (MessageXXX, где XXX - ID компонента — создать соответствующий компонент для вывода галереи)
+    protected static $image_field_id = 487; // ID поля с изображениями в галерее (Field_ID таблицы Multifield)
 
     /**
      * Обработка контента статьи - замена {{gallery_№}} на HTML галереи
@@ -37,7 +37,7 @@ class GalleryProcessor {
         
         // Получаем данные объекта галереи
         $gallery_data = $db->get_row("
-            SELECT Message_ID, Name, Description
+            SELECT Message_ID, album_title
             FROM Message" . self::$gallery_component_id . " 
             WHERE Message_ID = " . (int)$gallery_id . "
             AND Checked = 1
@@ -49,11 +49,10 @@ class GalleryProcessor {
 
         // Получаем изображения галереи
         $images = $db->get_results("
-            SELECT File_Path, Description, File_Type
+            SELECT Path
             FROM Multifield 
             WHERE Message_ID = " . (int)$gallery_id . "
             AND Field_ID = " . self::$image_field_id . "
-            AND File_Type IN ('jpeg', 'jpg', 'png', 'gif', 'webp')
             ORDER BY Priority
         ", ARRAY_A);
 
@@ -89,7 +88,7 @@ class GalleryProcessor {
                 <div class="carousel-container">
                     <?php foreach ($images as $index => $image): ?>
                     <div class="carousel-slide" data-slide-index="<?= $index ?>">
-                        <img src="<?= $image['File_Path'] ?>" 
+                        <img src="<?= $image['Path'] ?>" 
                              alt="<?= htmlspecialchars($image['Description'] ?? '') ?>" 
                              class="carousel-image" 
                              loading="lazy" />
