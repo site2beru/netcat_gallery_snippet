@@ -6,23 +6,23 @@
 
 Предварительно создать компонент для галереи, например, такой:
  
-_Префикс списка объектов:_
+**Префикс списка объектов:**
 <?php echo $f_AdminCommon; ?>
 <div class="article-carousel">
   
-_Объект в списке:_
-<?php echo $f_AdminButtons; ?>
+**Объект в списке:
+**<?php echo $f_AdminButtons; ?>
 <?php echo $f_album_img?>
 
-_Суффикс списка объектов:_
-<button class="carousel-prev" aria-label="Предыдущее изображение">❮</button>
+**Суффикс списка объектов:
+**<button class="carousel-prev" aria-label="Предыдущее изображение">❮</button>
   <button class="carousel-next" aria-label="Следующее изображение">❯</button>
   <div class="carousel-dots">
 
   </div>
 </div>
 
-В системных настройках компонента прописать вывод поля «Множественная загрузка файлов»:
+В **системных настройках** компонента прописать вывод поля «Множественная загрузка файлов»:
 
 <?php
 $f_album_img_tpl = array(
